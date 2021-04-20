@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CovidStats</string>
+
+    <string name="cases_count_title">Počet nově nakžených</string>
+    <string name="tests_count_title">Počet provedených testů</string>
+    <string name="vaccination_count_title">Počet vykázaných očkování</string>
 </resources>
