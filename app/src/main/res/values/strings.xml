@@ -3,5 +3,8 @@
 
     <string name="cases_count_title">Počet nově nakžených</string>
     <string name="tests_count_title">Počet provedených testů</string>
-    <string name="vaccination_count_title">Počet vykázaných očkování</string>
+    <string name="death_count_title">Počet úmrtí</string>
+    <string name="hospitalization_count_title">Počet hospitalizovaných osob</string>
+
+    <string name="api_request_error">Nastala chyba při načítání dat.</string>
 </resources>

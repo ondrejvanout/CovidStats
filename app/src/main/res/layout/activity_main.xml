@@ -37,11 +37,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="@string/tests_count_title"
+                android:text="@string/cases_count_title"
                 style="@style/title_style"
                 android:background="@drawable/layout_border" />
 
             <TextView
+                android:id="@+id/cases_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="3"
@@ -70,6 +71,7 @@
                 android:background="@drawable/layout_border" />
 
             <TextView
+                android:id="@+id/tests_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="3"
@@ -78,7 +80,7 @@
 
         </LinearLayout>
 
-        <!-- VACCINES COUNT -->
+        <!-- DEATH COUNT -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -93,11 +95,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="@string/tests_count_title"
+                android:text="@string/death_count_title"
                 style="@style/title_style"
                 android:background="@drawable/layout_border" />
 
             <TextView
+                android:id="@+id/death_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:text="26"
+                style="@style/value_style" />
+
+        </LinearLayout>
+
+        <!-- HOSPITALIZATION COUNT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/layout_border" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/hospitalization_count_title"
+                style="@style/title_style"
+                android:background="@drawable/layout_border" />
+
+            <TextView
+                android:id="@+id/hospitalization_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="3"
