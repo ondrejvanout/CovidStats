@@ -18,8 +18,6 @@ import java.util.Date;
 public class CovidDataService {
     private Context context;
     private Date date;
-    private int index;
-    private int indexHospital;
 
     // URLs
     private final String CASES_URL = "https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/nakaza.json";
@@ -29,8 +27,6 @@ public class CovidDataService {
     public CovidDataService(Context context, Date selectedDate) {
         this.context = context;
         this.date = selectedDate;
-        index = 0;
-        indexHospital = 0;
     }
 
     public interface VolleyResponseListener {
@@ -48,10 +44,8 @@ public class CovidDataService {
                 JSONObject selectedCases = new JSONObject();
                 for (int i = 0; i < casesArray.length(); i++) {
                     selectedCases = casesArray.getJSONObject(i);
-                    if (selectedCases.getString("datum").equals(date)) {
-                        index = i;
+                    if (selectedCases.getString("datum").equals(date))
                         break;
-                    }
                 }
 
                 responseListener.onResponse(selectedCases.getString("prirustkovy_pocet_nakazenych"));
@@ -71,7 +65,12 @@ public class CovidDataService {
         JsonObjectRequest testsRequest = new JsonObjectRequest(Request.Method.GET, TESTS_URL, null, response -> {
             try {
                 JSONArray testsArray = response.getJSONArray("data");
-                JSONObject selectedTests = testsArray.getJSONObject(index);
+                JSONObject selectedTests = new JSONObject();
+                for (int i = 0; i < testsArray.length(); i++) {
+                    selectedTests = testsArray.getJSONObject(i);
+                    if (selectedTests.getString("datum").equals(date))
+                        break;
+                }
 
                 responseListener.onResponse(selectedTests.getString("prirustkovy_pocet_testu"));
             } catch (JSONException e) {
@@ -93,10 +92,8 @@ public class CovidDataService {
                 JSONObject selectedDeath = new JSONObject();
                 for (int i = 0; i < deathArray.length(); i++) {
                     selectedDeath = deathArray.getJSONObject(i);
-                    if (selectedDeath.getString("datum").equals(date)) {
-                        indexHospital = i;
+                    if (selectedDeath.getString("datum").equals(date))
                         break;
-                    }
                 }
 
                 responseListener.onResponse(selectedDeath.getString("umrti"));
@@ -116,7 +113,12 @@ public class CovidDataService {
         JsonObjectRequest hospitalizationRequest = new JsonObjectRequest(Request.Method.GET, DEATH_URL, null, response -> {
             try {
                 JSONArray hospitalizationArray = response.getJSONArray("data");
-                JSONObject selectedHospitalization = hospitalizationArray.getJSONObject(indexHospital);
+                JSONObject selectedHospitalization = new JSONObject();
+                for (int i = 0; i < hospitalizationArray.length(); i++) {
+                    selectedHospitalization = hospitalizationArray.getJSONObject(i);
+                    if (selectedHospitalization.getString("datum").equals(date))
+                        break;
+                }
 
                 responseListener.onResponse(selectedHospitalization.getString("pocet_hosp"));
             } catch (JSONException e) {

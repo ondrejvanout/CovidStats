@@ -28,7 +28,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         minDate.set(2020, 3, 1);
 
         Calendar maxDate = Calendar.getInstance();
-        maxDate.add(Calendar.DAY_OF_MONTH, -1);
+        maxDate.add(Calendar.DAY_OF_MONTH, -2);
 
         // Create a new instance of DatePickerDialog and return it
         DatePickerDialog finalDialog = new DatePickerDialog(getActivity(), this, year, month, day);
