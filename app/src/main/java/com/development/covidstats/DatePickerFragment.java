@@ -28,7 +28,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         minDate.set(2020, 3, 1);
 
         Calendar maxDate = Calendar.getInstance();
-        maxDate.add(Calendar.DAY_OF_MONTH, -2);
+        maxDate.add(Calendar.DAY_OF_MONTH, -1);
 
         // Create a new instance of DatePickerDialog and return it
         DatePickerDialog finalDialog = new DatePickerDialog(getActivity(), this, year, month, day);
@@ -69,6 +69,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
                 @Override
                 public void onResponse(String response) {
+                    if (response.equals("Data nebyla ještě zveřejněna."))
+                        casesView.setTextSize(20);
+                    else
+                        casesView.setTextSize(50);
                     casesView.setText(response);
                 }
             });
@@ -81,6 +85,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
                 @Override
                 public void onResponse(String response) {
+                    if (response.equals("Data nebyla ještě zveřejněna."))
+                        testsView.setTextSize(20);
+                    else
+                        testsView.setTextSize(50);
                     testsView.setText(response);
                 }
             });
@@ -93,6 +101,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
                 @Override
                 public void onResponse(String response) {
+                    if (response.equals("Data nebyla ještě zveřejněna."))
+                        deathView.setTextSize(20);
+                    else
+                        deathView.setTextSize(50);
                     deathView.setText(response);
                 }
             });
@@ -105,6 +117,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
                 @Override
                 public void onResponse(String response) {
+                    if (response.equals("Data nebyla ještě zveřejněna."))
+                        hospitalizationView.setTextSize(20);
+                    else
+                        hospitalizationView.setTextSize(50);
                     hospitalizationView.setText(response);
                 }
             });

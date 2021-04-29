@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_PATTERN);
 
         Calendar currentDate = Calendar.getInstance();
-        currentDate.add(Calendar.DAY_OF_MONTH, -2);
+        currentDate.add(Calendar.DAY_OF_MONTH, -1);
         Date selectedDate = currentDate.getTime();
 
         setInitialValues(selectedDate);

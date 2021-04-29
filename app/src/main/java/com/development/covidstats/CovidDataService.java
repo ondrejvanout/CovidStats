@@ -42,13 +42,19 @@ public class CovidDataService {
             try {
                 JSONArray casesArray = response.getJSONArray("data");
                 JSONObject selectedCases = new JSONObject();
+                String jsonResponse = "";
                 for (int i = 0; i < casesArray.length(); i++) {
                     selectedCases = casesArray.getJSONObject(i);
-                    if (selectedCases.getString("datum").equals(date))
+                    if (selectedCases.getString("datum").equals(date)) {
+                        jsonResponse = selectedCases.getString("prirustkovy_pocet_nakazenych");
                         break;
+                    }
+
+                    if (i == casesArray.length() - 1)
+                        jsonResponse = "Data nebyla ještě zveřejněna.";
                 }
 
-                responseListener.onResponse(selectedCases.getString("prirustkovy_pocet_nakazenych"));
+                responseListener.onResponse(jsonResponse);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -66,13 +72,19 @@ public class CovidDataService {
             try {
                 JSONArray testsArray = response.getJSONArray("data");
                 JSONObject selectedTests = new JSONObject();
+                String jsonResponse = "";
                 for (int i = 0; i < testsArray.length(); i++) {
                     selectedTests = testsArray.getJSONObject(i);
-                    if (selectedTests.getString("datum").equals(date))
+                    if (selectedTests.getString("datum").equals(date)) {
+                        jsonResponse = selectedTests.getString("prirustkovy_pocet_testu");
                         break;
+                    }
+
+                    if (i == testsArray.length() - 1)
+                        jsonResponse = "Data nebyla ještě zveřejněna.";
                 }
 
-                responseListener.onResponse(selectedTests.getString("prirustkovy_pocet_testu"));
+                responseListener.onResponse(jsonResponse);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -90,13 +102,19 @@ public class CovidDataService {
             try {
                 JSONArray deathArray = response.getJSONArray("data");
                 JSONObject selectedDeath = new JSONObject();
+                String jsonResponse = "";
                 for (int i = 0; i < deathArray.length(); i++) {
                     selectedDeath = deathArray.getJSONObject(i);
-                    if (selectedDeath.getString("datum").equals(date))
+                    if (selectedDeath.getString("datum").equals(date)) {
+                        jsonResponse = selectedDeath.getString("umrti");
                         break;
+                    }
+
+                    if (i == deathArray.length() - 1)
+                        jsonResponse = "Data nebyla ještě zveřejněna.";
                 }
 
-                responseListener.onResponse(selectedDeath.getString("umrti"));
+                responseListener.onResponse(jsonResponse);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -114,13 +132,20 @@ public class CovidDataService {
             try {
                 JSONArray hospitalizationArray = response.getJSONArray("data");
                 JSONObject selectedHospitalization = new JSONObject();
+                String jsonResponse = "";
                 for (int i = 0; i < hospitalizationArray.length(); i++) {
                     selectedHospitalization = hospitalizationArray.getJSONObject(i);
-                    if (selectedHospitalization.getString("datum").equals(date))
+                    if (selectedHospitalization.getString("datum").equals(date)) {
+                        jsonResponse = selectedHospitalization.getString("pocet_hosp");
                         break;
+                    }
+
+                    if (i == hospitalizationArray.length() - 1)
+                        jsonResponse = "Data nebyla ještě zveřejněna.";
+
                 }
 
-                responseListener.onResponse(selectedHospitalization.getString("pocet_hosp"));
+                responseListener.onResponse(jsonResponse);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
