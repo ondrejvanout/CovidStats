@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
+                if (response.equals("Data nebyla ještě zveřejněna."))
+                    casesView.setTextSize(20);
+                else
+                    casesView.setTextSize(50);
                 casesView.setText(response);
             }
         });
@@ -93,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
+                if (response.equals("Data nebyla ještě zveřejněna."))
+                    testsView.setTextSize(20);
+                else
+                    testsView.setTextSize(50);
                 testsView.setText(response);
             }
         });
@@ -105,6 +113,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
+                if (response.equals("Data nebyla ještě zveřejněna."))
+                    deathView.setTextSize(20);
+                else
+                    deathView.setTextSize(50);
                 deathView.setText(response);
             }
         });
@@ -117,6 +129,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
+                if (response.equals("Data nebyla ještě zveřejněna."))
+                    hospitalizationView.setTextSize(20);
+                else
+                    hospitalizationView.setTextSize(50);
                 hospitalizationView.setText(response);
             }
         });
