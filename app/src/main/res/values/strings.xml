@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CovidStats</string>
 
-    <string name="cases_count_title">Počet nově nakžených</string>
+    <string name="cases_count_title">Počet nově nakažených</string>
     <string name="tests_count_title">Počet provedených testů</string>
     <string name="death_count_title">Počet úmrtí</string>
     <string name="hospitalization_count_title">Počet hospitalizovaných osob</string>
